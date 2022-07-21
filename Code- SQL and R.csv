@@ -1,0 +1,237 @@
+SQL,,,,,,
+"CREATE TABLE public.June_2021
+(    
+    ride_id VARCHAR PRIMARY KEY,   
+    rideable_type text,
+    started_at TIMESTAMP,
+    ended_at TIMESTAMP,
+	ride_length TIME,   
+    day_of_week smallint,
+    day_of_week_text text,
+    start_station_name VARCHAR,
+	start_station_id VARCHAR,   
+    end_station_name VARCHAR,
+    end_station_id VARCHAR,
+    start_lat double precision,
+	start_lng double precision,   
+    end_lat double precision,
+    end_lng double precision,
+    member_casual text
+)",<-,creating the table,,,,
+"    SELECT 
+        *
+    FROM
+        june_2021
+UNION
+    SELECT
+        *
+    FROM
+        july_2021
+UNION
+    SELECT
+        *
+    FROM
+        august_2021
+UNION
+	SELECT 
+        *
+    FROM
+        september_2021
+UNION
+    SELECT
+        *
+    FROM
+        october_2021
+UNION
+    SELECT
+        *
+    FROM
+        november_2021
+UNION
+	SELECT 
+        *
+    FROM
+        december_2021
+UNION
+    SELECT
+        *
+    FROM
+        january_2022
+UNION
+    SELECT
+        *
+    FROM
+        february_2022
+UNION
+	SELECT 
+        *
+    FROM
+        march_2022
+UNION
+    SELECT
+        *
+    FROM
+        april_2022
+UNION
+    SELECT
+        *
+    FROM
+        may_2022",<-,combining all tables,,,,
+,,,,,,
+,,"SELECT  distinct (start_station_name), count (start_station_name)
+FROM
+	(SELECT 
+        *
+    FROM
+        june_2021
+UNION
+    SELECT
+        *
+    FROM
+        july_2021
+UNION
+    SELECT
+        *
+    FROM
+        august_2021
+UNION
+	SELECT 
+        *
+    FROM
+        september_2021
+UNION
+    SELECT
+        *
+    FROM
+        october_2021
+UNION
+    SELECT
+        *
+    FROM
+        november_2021
+UNION
+	SELECT 
+        *
+    FROM
+        december_2021
+UNION
+    SELECT
+        *
+    FROM
+        january_2022
+UNION
+    SELECT
+        *
+    FROM
+        february_2022
+UNION
+	SELECT 
+        *
+    FROM
+        march_2022
+UNION
+    SELECT
+        *
+    FROM
+        april_2022
+UNION
+    SELECT
+        *
+    FROM
+        may_2022) all_data
+		where member_casual = 'member'
+		group by distinct (start_station_name)
+		order by count (start_station_name) Desc
+		Limit 5",,,"SELECT  distinct (start_station_name), count (start_station_name)
+FROM
+	(SELECT 
+        *
+    FROM
+        june_2021
+UNION
+    SELECT
+        *
+    FROM
+        july_2021
+UNION
+    SELECT
+        *
+    FROM
+        august_2021
+UNION
+	SELECT 
+        *
+    FROM
+        september_2021
+UNION
+    SELECT
+        *
+    FROM
+        october_2021
+UNION
+    SELECT
+        *
+    FROM
+        november_2021
+UNION
+	SELECT 
+        *
+    FROM
+        december_2021
+UNION
+    SELECT
+        *
+    FROM
+        january_2022
+UNION
+    SELECT
+        *
+    FROM
+        february_2022
+UNION
+	SELECT 
+        *
+    FROM
+        march_2022
+UNION
+    SELECT
+        *
+    FROM
+        april_2022
+UNION
+    SELECT
+        *
+    FROM
+        may_2022) all_data
+		where member_casual = 'casual'
+		group by distinct (start_station_name)
+		order by count (start_station_name) Desc
+		Limit 5",
+,,,,,,
+,,Top 5 stations for Members,,,Top 5 stations for Casual,
+,,Kingsbury St & Kinzie St,24729,,Streeter Dr & Grand Ave,64494
+,,Clark St & Elm St,23582,,Millennium Park,30051
+,,Wells St & Concord Ln,22842,,Michigan Ave & Oak St,27715
+,,Wells St & Elm St,19965,,DuSable Lake Shore Dr & Monroe St,22985
+,,Dearborn St & Erie St,18216,,Shedd Aquarium,21799
+R,,,,,,
+"june_2021 <- read_csv(""Cyclistic Ride/CSV/202106-divvy-tripdata.csv"")
+july_2021 <- read_csv(""Cyclistic Ride/CSV/202107-divvy-tripdata.csv"")
+august_2021 <- read_csv(""Cyclistic Ride/CSV/202108-divvy-tripdata.csv"")
+september_2021 <- read_csv(""Cyclistic Ride/CSV/202109-divvy-tripdata.csv"")
+october_2021 <- read_csv(""Cyclistic Ride/CSV/202110-divvy-tripdata.csv"")
+november_2021 <- read_csv(""Cyclistic Ride/CSV/202111-divvy-tripdata.csv"")
+december_2021 <- read_csv(""Cyclistic Ride/CSV/202112-divvy-tripdata.csv"")
+january_2022 <- read_csv(""Cyclistic Ride/CSV/202201-divvy-tripdata.csv"")
+february_2022 <- read_csv(""Cyclistic Ride/CSV/202202-divvy-tripdata.csv"")
+march_2022 <- read_csv(""Cyclistic Ride/CSV/202203-divvy-tripdata.csv"")
+april_2022 <- read_csv(""Cyclistic Ride/CSV/202204-divvy-tripdata.csv"")
+may_2022 <- read_csv(""Cyclistic Ride/CSV/202205-divvy-tripdata.csv"")
+fullset <- rbind(june_2021, july_2021,august_2021,september_2021,october_2021, november_2021,december_2021,january_2022,february_2022, march_2022,april_2022,may_2022)",<-,combining all tables,,,,
+,,"fullset %>% filter(member_casual=='casual' | member_casual == 'member') %>% group_by(member_casual) %>%
+  summarise(mean=mean(ride_length))",,,"fullset %>% filter(member_casual=='casual' | member_casual == 'member') %>% group_by(member_casual) %>%
+  summarise(median=median(ride_length))",
+,,,,,,
+,,Mean ride length,,,Median ride length,
+,,member,12:51.8,,member,9:25
+,,casual,27:15.8,,casual,16:09
