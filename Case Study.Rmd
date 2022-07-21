@@ -1,7 +1,7 @@
 ---
-title: "New test"
+title: "Cyclistic Case Study"
 author: "Ermias Molla"
-date: "`r Sys.Date()`"
+date: June 2o 2022
 output: html_document
 editor_options: 
   markdown: 
@@ -67,3 +67,5 @@ library(skimr)
 Change_log <- read_csv("~/GitHub/.github.io/Change log.csv")
 View(Change_log)
 ```
+
+![](images/paste-1D57E0B8.png)
