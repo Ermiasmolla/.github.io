@@ -1,0 +1,69 @@
+---
+title: "New test"
+author: "Ermias Molla"
+date: "`r Sys.Date()`"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+Cyclistic Bike-Share: Case Study This R Markdown document is created as
+a capstone project for the Google Data Analytics Professional
+Certificate on Coursera . Introduction and Scenario I am a junior data
+analyst working in the marketing analyst team at Cyclistic, a bike-share
+company in Chicago. The director of marketing believes the company's
+future success depends on maximizing the number of annual memberships.
+Therefore, my team wants to understand how casual riders and annual
+members use Cyclistic bikes differently. From these insights, my team
+will design a new marketing strategy to convert casual riders into
+annual members. But first, Cyclistic executives must approve your
+recommendations, so they must be backed up with compelling data insights
+and professional data visualizations. In this project I will be using
+Many of the tools introduced to me in the Google Data Analytics Course
+including Excel, SQL, R Studio and Tableau. Background Cyclistic
+launched in 2016 as a bike-share service. Since then, the program has
+grown to a fleet of 5,824 bicycles that are geotracked and locked into a
+network of 692 stations across Chicago. The bikes can be unlocked from
+one station and returned to any other station in the system anytime.
+There are Members and Casual Riders. Cyclistic's finance analysts have
+concluded that annual members are much more profitable than casual
+riders. Cyclistic's believes that maximizing the number of annual
+members will be key to future growth. This project uses the data
+analysis process: ask, prepare, process, analyze, share, and act. Ask
+There are Three questions that will guide the future marketing
+program: 1. How do annual members and casual riders use Cyclistic bikes
+differently? 2. Why would casual riders buy Cyclistic annual
+memberships? 3. How can Cyclistic use digital media to influence casual
+riders to become members? The director of marketing, Lily Moreno, has
+assigned me the first question to answer: How do annual members and
+casual riders use Cyclistic bikes differently? The Business Task The
+business task is to identify the key differences in usage between
+members and casual riders in order turn our Casual riders into Member
+riders. Stakeholders: The director of marketing Cyclistic Executive team
+Data marketing Analytics team Cyclistic Prepare The data used is
+Cyclistic internal data from June 2021- May 2022. The data is available
+at this link under this license. The data used was 12 CSV files on for
+each month within the last year, with 13 columns and more than 5,800,000
+rows. Our data integrity will be assessed by using ROCCC method. The
+data needs to be Reliable it was be cleaned in Microsoft Excel. The data
+is Original because it comes from Motivate International Inc which
+operates Chicago's Bike sharing service. It is also Comprehensive
+containing many datapoints from start time to start station and other
+datapoints that are integral to the analysis. The data used is from the
+most Current 12-month period and it is Cited under a Data license
+agreement. Process Before we start analyzing, it is necessary to make
+sure data is clean, free of error and in the right format. \###
+Tasks: 1. Tools: R Programming is used for its ability to handle huge
+datasets efficiently. Microsoft Excel is used for further analysis and
+visualization.
+
+```{r setup, include=FALSE}
+# Load packages in R
+library(readr)
+library(tidyverse)
+library(dplyr)
+library(skimr)
+Change_log <- read_csv("~/GitHub/.github.io/Change log.csv")
+View(Change_log)
+```

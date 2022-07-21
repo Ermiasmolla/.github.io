@@ -1,9 +1,10 @@
-"Data, file, formula, query, or any other component that changed",Description of what changed,Date of the change,Version number�,Reason for the change,Lines June,Lines July,Lines August,Lines September,Lines October,Lines November,Lines December,Lines January,Lines February,Lines March,Lines April,Lines May,Total Lines,,,
-X=(D2-C2),Added ride_length Column,7/10/2022,1,Neded ride length,729595,822410,804352,756147,631226,359978,247540,103770,115609,284042,371249,634858,"5,860,776",,,
-Format new column,Change format of cloumn to HH:MM:SS,7/10/2022,1,was in the wrong format,729595,822410,804352,756147,631226,359978,247540,103770,115609,284042,371249,634858,"5,860,776",,,
-X=WEEKDAY(C2),Find day of Week,7/10/2022,1,data manipulation,729595,822410,804352,756147,631226,359978,247540,103770,115609,284042,371249,634858,"5,860,776",,,
-Copied day of week column as a text and format it as dddd,Added day_of_week_text Column,7/10/2022,1,data manipulation,729595,822410,804352,756147,631226,359978,247540,103770,115609,284042,371249,634858,"5,860,776",,,
-removes,Removed lines without start and end points,7/14/2022,2,incomplete,608778,692321,674409,621150,477972,255904,176371,80128,89178,215983,272560,502545,"4,667,299",,,
-removes,"Removed ride lenghts <one minute ,>one day, negative",7/14/2022,2,Accuracy,600256,682952,665917,613266,471378,252147,173970,79497,87642,212872,268525,494083,"4,602,175",,,
-removes,Removed Duplicates from ride_id column,7/14/2022,2,Primary key,600256,682952,665917,613266,471378,252147,173970,79494,87642,212872,268525,494083,"4,602,502",,,57.89747654
-,,,,,,,,,,,,,,,,,,,Clean Percent,78.53%
+﻿"Data, file, formula, query, or any other component that changed",Description of what changed,Date of the change,Version number ,Reason for the change,Rows June,Rows July,Rows August,Rows September,Rows October,Rows November,Rows December,Rows January,Rows February,Rows March,Rows April,Rows May,Total Rows,
+X=(D2-C2),Added ride_length Column,7/10/2022,1,Neded ride length,729595,822410,804352,756147,631226,359978,247540,103770,115609,284042,371249,634858,"5,860,776",
+Format new column,Change format of cloumn to HH:MM:SS,7/10/2022,1,was in the wrong format,729595,822410,804352,756147,631226,359978,247540,103770,115609,284042,371249,634858,"5,860,776",
+X=WEEKDAY(C2),Find day of Week,7/10/2022,1,data manipulation,729595,822410,804352,756147,631226,359978,247540,103770,115609,284042,371249,634858,"5,860,776",
+Copied day of week column as a text and format it as dddd,Added day_of_week_text Column,7/10/2022,1,data manipulation,729595,822410,804352,756147,631226,359978,247540,103770,115609,284042,371249,634858,"5,860,776",
+removes,Removed lines without start and end points,7/14/2022,2,incomplete,608778,692321,674409,621150,477972,255904,176371,80128,89178,215983,272560,502545,"4,667,299",
+removes,"Removed ride lenghts <one minute ,>one day, negative",7/14/2022,2,Accuracy,600256,682952,665917,613266,471378,252147,173970,79497,87642,212872,268525,494083,"4,602,175",
+removes,Removed Duplicates from ride_id column,7/14/2022,2,Primary key,600256,682952,665917,613266,471378,252147,173970,79494,87642,212872,268525,494083,"4,602,502",
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,Percent of data remaining,78.53%
