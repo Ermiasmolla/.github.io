@@ -56,7 +56,8 @@ I processed the data by downloading all 12 of the previous Months CSV Files.
 
 {r setup, include=FALSE} \# Load packages in R library(readr) library(tidyverse) library(dplyr) library(skimr) Changelog \<- read_csv("Cyclistic Ride/Change log.csv")
 
-![Change_log](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Change%20Log.png) 
+![Change_log](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Change%20Log.png)
+![new](https://github.com/Ermiasmolla/.github.io/blob/main/Change%20log.csv)
 
  
 
