@@ -52,8 +52,7 @@ Our data integrity will be assessed by using ROCCC method. The data needs to be 
 
 **Process**
 
-I processed the data in Excel by downloading, cleaning, manipulating and combining all 12 of the previous Months CSV Files.
-Below is a change log of the steps I took in Excel
+I processed the data in Excel by downloading, cleaning, manipulating and combining all 12 of the previous Months CSV Files. Below is a change log of the steps I took in Excel
 
 ![Change_log](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Change%20Log.png)
 
@@ -81,24 +80,31 @@ To analyze this data, I mostly used Tableau to visualize the data in a comprehen
 
 ![Ride_Length](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Ride%20Length.png)
 
-`{r}# Load packages in R} install.packages("tidyverse") library(readr)  library(tidyverse)  library(dplyr)  library(skimr) june_2021 <- read_csv("Cyclistic Ride/CSV/202106-divvy-tripdata.csv") july_2021 <- read_csv("Cyclistic Ride/CSV/202107-divvy-tripdata.csv") august_2021 <- read_csv("Cyclistic Ride/CSV/202108-divvy-tripdata.csv") september_2021 <- read_csv("Cyclistic Ride/CSV/202109-divvy-tripdata.csv") october_2021 <- read_csv("Cyclistic Ride/CSV/202110-divvy-tripdata.csv") november_2021 <- read_csv("Cyclistic Ride/CSV/202111-divvy-tripdata.csv") december_2021 <- read_csv("Cyclistic Ride/CSV/202112-divvy-tripdata.csv") january_2022 <- read_csv("Cyclistic Ride/CSV/202201-divvy-tripdata.csv") february_2022 <- read_csv("Cyclistic Ride/CSV/202202-divvy-tripdata.csv") march_2022 <- read_csv("Cyclistic Ride/CSV/202203-divvy-tripdata.csv") april_2022 <- read_csv("Cyclistic Ride/CSV/202204-divvy-tripdata.csv") may_2022 <- read_csv("Cyclistic Ride/CSV/202205-divvy-tripdata.csv") fullset <- rbind(june_2021, july_2021,august_2021,september_2021,october_2021, november_2021,december_2021,january_2022,february_2022, march_2022,april_2022,may_2022)`
+`{r}# Load packages in R}`
 
-```{r}#Using R to calculate Mean and Median#}
+`install.packages("tidyverse")`
 
-fullset %>% filter(member_casual=='casual' | member_casual == 'member') %>% group_by(member_casual) %>%
-  summarise(mean=mean(ride_length))
+`library(readr)`
 
-fullset %>% filter(member_casual=='casual' | member_casual == 'member') %>% group_by(member_casual) %>%
-  summarise(median=median(ride_length))
-```
+`library(tidyverse)`
+
+`library(dplyr)`
+
+`library(skimr)`
+
+`june_2021 <- read_csv("Cyclistic Ride/CSV/202106-divvy-tripdata.csv") july_2021 <- read_csv("Cyclistic Ride/CSV/202107-divvy-tripdata.csv") august_2021 <- read_csv("Cyclistic Ride/CSV/202108-divvy-tripdata.csv") september_2021 <- read_csv("Cyclistic Ride/CSV/202109-divvy-tripdata.csv") october_2021 <- read_csv("Cyclistic Ride/CSV/202110-divvy-tripdata.csv") november_2021 <- read_csv("Cyclistic Ride/CSV/202111-divvy-tripdata.csv") december_2021 <- read_csv("Cyclistic Ride/CSV/202112-divvy-tripdata.csv") january_2022 <- read_csv("Cyclistic Ride/CSV/202201-divvy-tripdata.csv") february_2022 <- read_csv("Cyclistic Ride/CSV/202202-divvy-tripdata.csv") march_2022 <- read_csv("Cyclistic Ride/CSV/202203-divvy-tripdata.csv") april_2022 <- read_csv("Cyclistic Ride/CSV/202204-divvy-tripdata.csv") may_2022 <- read_csv("Cyclistic Ride/CSV/202205-divvy-tripdata.csv") fullset <- rbind(june_2021, july_2021,august_2021,september_2021,october_2021, november_2021,december_2021,january_2022,february_2022, march_2022,april_2022,may_2022)`
+
+\`\`\`{r}#Using R to calculate Mean and Median#}
+
+fullset %\>% filter(member_casual=='casual' \| member_casual == 'member') %\>% group_by(member_casual) %\>% summarise(mean=mean(ride_length))
+
+fullset %\>% filter(member_casual=='casual' \| member_casual == 'member') %\>% group_by(member_casual) %\>% summarise(median=median(ride_length)) \`\`\`
 
 Casual riders are riding for longer periods of time, with an average more than double the time of Members.
 
 ![Ride_By_Month](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Month.png)
 
-Both Casual and Member riders have significant lows in the winter season.
-
-Casual Riders have a wider range from highest use to lowest
+Both Casual and Member riders have significant lows in the winter season. Casual Riders have a wider range from highest use to lowest
 
 ![Ride_By_Hour](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Hour.png)
 
@@ -114,11 +120,149 @@ Both Casual and Member riders prefer the Classic bike over the Electric bike. Do
 
 ![Density](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Density.png)
 
-In this part of the analysis I used SQL to find the top 5 stations for Members as well as Casual riders.
+In this part of the analysis I used PGAdmin to run SQL queries to find the top 5 stations for Members as well as Casual riders.
 
-SQL top 5 stations
+```{sql connection=}
+SELECT  distinct (start_station_name), count (start_station_name)
+FROM
+	(SELECT 
+        *
+    FROM
+        june_2021
+UNION
+    SELECT
+        *
+    FROM
+        july_2021
+UNION
+    SELECT
+        *
+    FROM
+        august_2021
+UNION
+	SELECT 
+        *
+    FROM
+        september_2021
+UNION
+    SELECT
+        *
+    FROM
+        october_2021
+UNION
+    SELECT
+        *
+    FROM
+        november_2021
+UNION
+	SELECT 
+        *
+    FROM
+        december_2021
+UNION
+    SELECT
+        *
+    FROM
+        january_2022
+UNION
+    SELECT
+        *
+    FROM
+        february_2022
+UNION
+	SELECT 
+        *
+    FROM
+        march_2022
+UNION
+    SELECT
+        *
+    FROM
+        april_2022
+UNION
+    SELECT
+        *
+    FROM
+        may_2022) all_data
+		where member_casual = 'member'
+		group by distinct (start_station_name)
+		order by count (start_station_name) Desc
+		Limit 5
 
-Casual: More likely to use bikes near lake Michigan and other tourist hotspots with more rides on weekends indicating people are using the bike for leisure. Members: More likely to use in the downtown area and on weekdays, indicating these users are commuters to the city for work.
+```
+![Member Stations](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Member%20Stations.png)
+
+```{sql connection=}
+SELECT  distinct (start_station_name), count (start_station_name)
+FROM
+	(SELECT 
+        *
+    FROM
+        june_2021
+UNION
+    SELECT
+        *
+    FROM
+        july_2021
+UNION
+    SELECT
+        *
+    FROM
+        august_2021
+UNION
+	SELECT 
+        *
+    FROM
+        september_2021
+UNION
+    SELECT
+        *
+    FROM
+        october_2021
+UNION
+    SELECT
+        *
+    FROM
+        november_2021
+UNION
+	SELECT 
+        *
+    FROM
+        december_2021
+UNION
+    SELECT
+        *
+    FROM
+        january_2022
+UNION
+    SELECT
+        *
+    FROM
+        february_2022
+UNION
+	SELECT 
+        *
+    FROM
+        march_2022
+UNION
+    SELECT
+        *
+    FROM
+        april_2022
+UNION
+    SELECT
+        *
+    FROM
+        may_2022) all_data
+		where member_casual = 'casual'
+		group by distinct (start_station_name)
+		order by count (start_station_name) Desc
+		Limit 5
+
+```
+![Casual Stations](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Casual%20Stations.png)
+
+Casual: More likely to use bikes near lake Michigan and other tourist hot spots with more rides on weekends indicating people are using the bike for leisure. Members: More likely to use in the downtown area and on weekdays, indicating these users are commuters to the city for work.
 
 **Share**
 
