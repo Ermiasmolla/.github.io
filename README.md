@@ -48,19 +48,34 @@ The data used is Cyclistic internal data from June 2021- May 2022. The data is a
 
 The data used was 12 CSV files on for each month within the last year, with 13 columns and more than 5,800,000 rows.
 
-Our data integrity will be assessed by using ROCCC method. The data needs to be **R**eliable it was be cleaned in Microsoft Excel. The data is **O**riginal because it comes from Motivate International Inc which operates Chicago's Bike sharing service. It is also **C**omprehensive containing many datapoints from start time to start station and other datapoints that are integral to the analysis. The data used is from the most **C**urrent 12-month period and it is **C**ited under a Data license agreement.
+Our data integrity will be assessed by using ROCCC method. The data needs to be **R**eliable it was be cleaned in Microsoft Excel. The data is **O**riginal because it comes from Motivate International Inc which operates Chicago's Bike sharing service. It is also **C**omprehensive containing many data-points from start time to start station and other data-points that are integral to the analysis. The data used is from the most **C**urrent 12-month period and it is **C**ited under a Data license agreement.
 
 **Process**
 
-I processed the data by downloading all 12 of the previous Months CSV Files.
+I processed the data by downloading and binding all 12 of the previous Months CSV Files.
 
-{r setup, include=FALSE} \# Load packages in R library(readr) library(tidyverse) library(dplyr) library(skimr) Changelog \<- read_csv("Cyclistic Ride/Change log.csv")
+```{r}# Load packages in R}
+install.packages("tidyverse")
+library(readr) 
+library(tidyverse) 
+library(dplyr) 
+library(skimr)
+june_2021 <- read_csv("Cyclistic Ride/CSV/202106-divvy-tripdata.csv")
+july_2021 <- read_csv("Cyclistic Ride/CSV/202107-divvy-tripdata.csv")
+august_2021 <- read_csv("Cyclistic Ride/CSV/202108-divvy-tripdata.csv")
+september_2021 <- read_csv("Cyclistic Ride/CSV/202109-divvy-tripdata.csv")
+october_2021 <- read_csv("Cyclistic Ride/CSV/202110-divvy-tripdata.csv")
+november_2021 <- read_csv("Cyclistic Ride/CSV/202111-divvy-tripdata.csv")
+december_2021 <- read_csv("Cyclistic Ride/CSV/202112-divvy-tripdata.csv")
+january_2022 <- read_csv("Cyclistic Ride/CSV/202201-divvy-tripdata.csv")
+february_2022 <- read_csv("Cyclistic Ride/CSV/202202-divvy-tripdata.csv")
+march_2022 <- read_csv("Cyclistic Ride/CSV/202203-divvy-tripdata.csv")
+april_2022 <- read_csv("Cyclistic Ride/CSV/202204-divvy-tripdata.csv")
+may_2022 <- read_csv("Cyclistic Ride/CSV/202205-divvy-tripdata.csv")
+fullset <- rbind(june_2021, july_2021,august_2021,september_2021,october_2021, november_2021,december_2021,january_2022,february_2022, march_2022,april_2022,may_2022)
+```
 
- 
-
-![Change_log](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Change%20Log.png)
-
- 
+Change_log
 
 Within the change log I detail the steps I took in order to clean and mutate the data, including:
 
@@ -70,7 +85,7 @@ Within the change log I detail the steps I took in order to clean and mutate the
 
 ·       Adding a numerical column to pull the day of the week from the start date column.
 
-·       Adding another column to change that numerical value into a day (i.e. 2=Monday) for clearer analysis
+·       Adding another column to change that numerical value into a day (i.e. 2=Monday) for   clearer analysis
 
 ·       Removing rows where start and end points were not included.
 
@@ -78,78 +93,62 @@ Within the change log I detail the steps I took in order to clean and mutate the
 
 ·       Removing data where the ride_column_id was a duplicated numerical value.
 
-·        
-
-Once this was complete or data went from about 5.8 million rows to 4.6 million rows. The cleaned data now represents 78.53% percent of the original data.
+Once this was complete our data went from about 5.8 million rows to 4.6 million rows. The cleaned data now represents 78.53% percent of the original data.
 
 **Analyze**
 
 To analyze this data, I mostly used Tableau to visualize the data in a comprehensible. I also used SQL and R to aggregate and summarize my findings with correlated data.
 
-![Ride_Length](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Ride%20Length.png)
-
- 
-
- 
+Ride_Length
 
 R Mean and Median
 
-Casual riders are riding for longer periods of time, on average more than double the time of Members.
+Casual riders are riding for longer periods of time, with an average more than double the time of Members.
 
-![Ride_By_Month](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Month.png)
+Ride_By_Month
 
-Both Casual and Member riders have significant lows in the Winter Season.
+Both Casual and Member riders have significant lows in the winter season.
 
-Casual Riders have a wider range from Highest use to lowest ![Ride_By_Hour](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Hour.png)
+Casual Riders have a wider range from highest use to lowest
 
-Member Riders have peaks at 8 A.M. and 5 P.M. correlating with work shifts. Casual Riders have A gradual increase until Peak rides at 5 P.M.
+Member Riders have peaks at 8 A.M. and 5 P.M. correlating with work shifts. Casual Riders have a gradual increase until peak rides at 5 P.M.
 
-![Ride_By_DOW](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Day%20of%20Week.png)
+Ride_By_DOW
 
-Casual riders have a wide range of riders per day which peak on Weekends Members are steady throughout the Week with slight dips on Weekends
+Casual riders have a wide range of riders per day which peak on weekends, members are steady throughout the Week with slight dips on weekends
 
-![Ride_By_Bike_type](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Bike%20type.png)
+Ride_By_Bike_type
 
 Both Casual and Member riders prefer the Classic bike over the Electric bike. Docked bike were another option but were only used for about 270,000 rides., while second the second-best performing bike was the electric bike at a total of about 1,150,000 rides in the same period. Classic Bikes were used for over 3,000,000 rides
 
-![Density](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Density.png)
+Density
 
-Sql top 5 stations
+SQL top 5 stations
 
 Casual: More likely to use bikes near lake Michigan and other tourist hotspots with more rides on weekends indicating people are using the bike for leisure. Members: More likely to use in the downtown area and on weekdays, indicating these users are commuters to the city for work.
 
 **Share**
 
-Microsoft PowerPoint is used for data visualization and presenting key insights. - Click [here](https://github.com/Ermiasmolla/.github.io/blob/main/Cyclistic%20Case%20Study.pptx) to download the presentation.
+I used PowerPoint to share the key findings and recommendations click [here](https://github.com/Ermiasmolla/.github.io/blob/main/Cyclistic%20Case%20Study.pptx) to download the presentation.
 
 **Act**
 
-After analizing, we reached to the following conclusion: - Casual riders take less number of rides but for longer durations. - Casual Riders are most active on weekends, and the months of June and July. - Casual riders mostly use bikes for recreational purposes.
+After analyzing, we reached to the following conclusion: - Casual riders take less number of rides but for longer durations. - Casual Riders are most active on weekends, and the months of June and July. - Casual riders mostly use bikes for recreational purposes.
 
-Here are my top 3 recommendations based on above key findings: 1. Design riding packages by 0keeping recreational activities, weekend contests, and summer events in mind and offer special discounts and coupons on such events to encourage casual riders get annual membership.
+Here are my top 3 recommendations based on above key findings:
 
-2.  
+1.  Design riding packages by keeping recreational activities, weekend contests, and summer events in mind and offer special discounts and coupons on such events to encourage casual riders get annual membership.
 
-3.  Design seasonal packages, It allows flexibility and encourages casual riders to get membership for specific periods if they are not willing to pay for annual subscription.
+2.  Design seasonal packages, It allows flexibility and encourages casual riders to get membership for specific periods if they are not willing to pay for annual subscription.
 
-4.  
-
-5.  Effective and efficient promotions by targeting casual riders at the busiest times and stations:
+3.  Effective and efficient promotions by targeting casual riders at the busiest times and stations:
 
     -   
 
     -   Days: Weekends
 
-    -   
-
     -   Months: February, June, and July
-
-    -   
 
     -   Stations: Streeter Dr & Grand Ave, Lake Shore Dr & Monroe St, Millennium Park
 
-    -   
-
-6.  
-
-***Thanks for reading and Happy Analyzing!*** :smiley: :bar_chart:
+Thank you
