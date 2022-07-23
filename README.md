@@ -150,7 +150,7 @@ CREATE TABLE public.June_2021
 )
 ```
 
-Then I joined the tables to create a table called "A"ll_data""
+Then I joined the tables to create a table called "All_data""
 
 ```{sql connection=}
 SELECT  distinct (start_station_name), count (start_station_name)
@@ -304,20 +304,17 @@ I used PowerPoint to share the key findings and recommendations click [here](htt
 
 **Act**
 
-After analyzing, we reached to the following conclusion: - Casual riders take less number of rides but for longer durations. - Casual Riders are most active on weekends, and the months of June and July. - Casual riders mostly use bikes for recreational purposes.
+After the analysis there are three recommendations I would make based on the trends we have noted.
 
-Here are my top 3 recommendations based on above key findings:
+1.	Lower incremental rates for longer use.
+	We see that Casual riders are on the bikes for longer periods of time. To encourage longer use we should decrease the charge per minute for members. After 15 minutes of use we can decrease the minute rate by a certain percentage. The mean ride time for casual riders is 27 minutes while member mean ride time is 12. If we charge less for member to use after 15 minutes, it will lead to casual riders converting to members to ride the bikes longer.
 
-1.  Design riding packages by keeping recreational activities, weekend contests, and summer events in mind and offer special discounts and coupons on such events to encourage casual riders get annual membership.
+2.	Reduced fare at specific time of day and day of week.
+	The other Major difference is linked with time. We see Casual rider’s ride at different hours of the day and different days of the week. We could have a reduced price for Members to ride after 6 and during the noon hour. This would attract our casual members because their use is not based on work hours. It would also have the benefit of making sure we have enough bikes for current member when they need it most at 5 P.M. These reduced member prices should also be in place on weekends. This is the highest traffic time for casual riders. If we have these price changes in place, we will be offering a lower price for members when casual riders most want to ride.
 
-2.  Design seasonal packages, It allows flexibility and encourages casual riders to get membership for specific periods if they are not willing to pay for annual subscription.
+3.	Location based discounts and activities
+	We observe the top 5 locations being near lakeshore drive and near tourist attractions such as the aquarium. We can assume that this is due to their primary use for the service being for leisurely activities. With leisure in mind, a recommendation I would give is to incentivize these activities. We can work with the city to give large discounts to members for public events. We can also give guided tours for tourists on the lake shore. Using these methods, we meet the casual rider’s needs.
 
-3.  Effective and efficient promotions by targeting casual riders at the busiest times and stations:
 
-    -   Days: Weekends
-
-    -   Months: February, June, and July
-
-    -   Stations: Streeter Dr & Grand Ave, Lake Shore Dr & Monroe St, Millennium Park
 
 Thank you
