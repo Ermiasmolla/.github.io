@@ -52,30 +52,10 @@ Our data integrity will be assessed by using ROCCC method. The data needs to be 
 
 **Process**
 
-I processed the data by downloading and binding all 12 of the previous Months CSV Files.
+I processed the data in Excel by downloading, cleaning, manipulating and combining all 12 of the previous Months CSV Files.
+Below is a change log of the steps I took in Excel
 
-```{r}# Load packages in R}
-install.packages("tidyverse")
-library(readr) 
-library(tidyverse) 
-library(dplyr) 
-library(skimr)
-june_2021 <- read_csv("Cyclistic Ride/CSV/202106-divvy-tripdata.csv")
-july_2021 <- read_csv("Cyclistic Ride/CSV/202107-divvy-tripdata.csv")
-august_2021 <- read_csv("Cyclistic Ride/CSV/202108-divvy-tripdata.csv")
-september_2021 <- read_csv("Cyclistic Ride/CSV/202109-divvy-tripdata.csv")
-october_2021 <- read_csv("Cyclistic Ride/CSV/202110-divvy-tripdata.csv")
-november_2021 <- read_csv("Cyclistic Ride/CSV/202111-divvy-tripdata.csv")
-december_2021 <- read_csv("Cyclistic Ride/CSV/202112-divvy-tripdata.csv")
-january_2022 <- read_csv("Cyclistic Ride/CSV/202201-divvy-tripdata.csv")
-february_2022 <- read_csv("Cyclistic Ride/CSV/202202-divvy-tripdata.csv")
-march_2022 <- read_csv("Cyclistic Ride/CSV/202203-divvy-tripdata.csv")
-april_2022 <- read_csv("Cyclistic Ride/CSV/202204-divvy-tripdata.csv")
-may_2022 <- read_csv("Cyclistic Ride/CSV/202205-divvy-tripdata.csv")
-fullset <- rbind(june_2021, july_2021,august_2021,september_2021,october_2021, november_2021,december_2021,january_2022,february_2022, march_2022,april_2022,may_2022)
-```
-
-Change_log
+![Change_log](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Change%20Log.png)
 
 Within the change log I detail the steps I took in order to clean and mutate the data, including:
 
@@ -99,29 +79,42 @@ Once this was complete our data went from about 5.8 million rows to 4.6 million 
 
 To analyze this data, I mostly used Tableau to visualize the data in a comprehensible. I also used SQL and R to aggregate and summarize my findings with correlated data.
 
-Ride_Length
+![Ride_Length](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Ride%20Length.png)
 
-R Mean and Median
+`{r}# Load packages in R} install.packages("tidyverse") library(readr)  library(tidyverse)  library(dplyr)  library(skimr) june_2021 <- read_csv("Cyclistic Ride/CSV/202106-divvy-tripdata.csv") july_2021 <- read_csv("Cyclistic Ride/CSV/202107-divvy-tripdata.csv") august_2021 <- read_csv("Cyclistic Ride/CSV/202108-divvy-tripdata.csv") september_2021 <- read_csv("Cyclistic Ride/CSV/202109-divvy-tripdata.csv") october_2021 <- read_csv("Cyclistic Ride/CSV/202110-divvy-tripdata.csv") november_2021 <- read_csv("Cyclistic Ride/CSV/202111-divvy-tripdata.csv") december_2021 <- read_csv("Cyclistic Ride/CSV/202112-divvy-tripdata.csv") january_2022 <- read_csv("Cyclistic Ride/CSV/202201-divvy-tripdata.csv") february_2022 <- read_csv("Cyclistic Ride/CSV/202202-divvy-tripdata.csv") march_2022 <- read_csv("Cyclistic Ride/CSV/202203-divvy-tripdata.csv") april_2022 <- read_csv("Cyclistic Ride/CSV/202204-divvy-tripdata.csv") may_2022 <- read_csv("Cyclistic Ride/CSV/202205-divvy-tripdata.csv") fullset <- rbind(june_2021, july_2021,august_2021,september_2021,october_2021, november_2021,december_2021,january_2022,february_2022, march_2022,april_2022,may_2022)`
+
+```{r}#Using R to calculate Mean and Median#}
+
+fullset %>% filter(member_casual=='casual' | member_casual == 'member') %>% group_by(member_casual) %>%
+  summarise(mean=mean(ride_length))
+
+fullset %>% filter(member_casual=='casual' | member_casual == 'member') %>% group_by(member_casual) %>%
+  summarise(median=median(ride_length))
+```
 
 Casual riders are riding for longer periods of time, with an average more than double the time of Members.
 
-Ride_By_Month
+![Ride_By_Month](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Month.png)
 
 Both Casual and Member riders have significant lows in the winter season.
 
 Casual Riders have a wider range from highest use to lowest
 
+![Ride_By_Hour](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Hour.png)
+
 Member Riders have peaks at 8 A.M. and 5 P.M. correlating with work shifts. Casual Riders have a gradual increase until peak rides at 5 P.M.
 
-Ride_By_DOW
+![Ride_By_DOW](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Day%20of%20Week.png)
 
 Casual riders have a wide range of riders per day which peak on weekends, members are steady throughout the Week with slight dips on weekends
 
-Ride_By_Bike_type
+![Ride_By_Bike_type](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Bike%20type.png)
 
 Both Casual and Member riders prefer the Classic bike over the Electric bike. Docked bike were another option but were only used for about 270,000 rides., while second the second-best performing bike was the electric bike at a total of about 1,150,000 rides in the same period. Classic Bikes were used for over 3,000,000 rides
 
-Density
+![Density](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Density.png)
+
+In this part of the analysis I used SQL to find the top 5 stations for Members as well as Casual riders.
 
 SQL top 5 stations
 
