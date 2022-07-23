@@ -99,10 +99,12 @@ Using R to calculate Mean and Median
 ```{r}
 fullset %>% filter(member_casual=='casual' | member_casual == 'member') %>% group_by(member_casual) %>% summarise(mean=mean(ride_length))
 ```
+![Mean](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Mean.PNG)
 
 ```{r}
 fullset %>% filter(member_casual=='casual' | member_casual == 'member') %>% group_by(member_casual) %>% summarise(median=median(ride_length))
 ```
+![Median](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Median.PNG)
 
 Casual riders are riding for longer periods of time, with an average more than double the time of Members.
 
@@ -317,4 +319,4 @@ After the analysis there are three recommendations I would make based on the tre
 
 
 
-Thank you
+Thank you.
