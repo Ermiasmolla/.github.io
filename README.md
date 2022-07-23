@@ -118,7 +118,7 @@ read_csv("Cyclistic Ride/Change log.csv")
 
  
 
-![Change_log]([https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Change%20Log.png)](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Change%20Log.png))
+![Change_log](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Change%20Log.png)
 
  
 
@@ -155,7 +155,8 @@ To analyze this data, I mostly used Tableau
 to visualize the data in a comprehensible. I also used SQL and R to aggregate
 and summarize my findings with correlated data.
 
-![Ride_Length]( [https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Ride%20Length.png)](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Ride%20Length.png))
+![Ride_Length](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Ride%20Length.png)
+
 
  
 
