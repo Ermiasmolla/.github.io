@@ -32,7 +32,7 @@ The director of marketing, Lily Moreno, has assigned me the first question to an
 
 The business task is to identify the key differences in usage between members and casual riders in order turn our Casual riders into Member riders.
 
-Stakeholders
+**Stakeholders**
 
 The director of marketing
 
@@ -46,7 +46,7 @@ Cyclistic
 
 The data used is Cyclistic internal data from June 2021- May 2022. The data is available at this [link](https://divvy-tripdata.s3.amazonaws.com/index.html) under this [license](https://www.divvybikes.com/data-license-agreement).
 
-The data used was 12 CSV files on for each month within the last year, with 13 columns and more than 5,800,000 rows.
+I downloaded 12 CSV files, one for each month within the last year, with 13 columns and more than 5,800,000 rows.
 
 Our data integrity will be assessed by using ROCCC method. The data needs to be **R**eliable it was be cleaned in Microsoft Excel. The data is **O**riginal because it comes from Motivate International Inc which operates Chicago's Bike sharing service. It is also **C**omprehensive containing many data-points from start time to start station and other data-points that are integral to the analysis. The data used is from the most **C**urrent 12-month period and it is **C**ited under a Data license agreement.
 
@@ -125,6 +125,32 @@ Both Casual and Member riders prefer the Classic bike over the Electric bike. Do
 ![Density](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Density.png)
 
 In this part of the analysis I also used PGAdmin to run SQL queries to find the top 5 stations for Members as well as Casual riders.
+
+First I created the table
+
+```{sql connection=}
+CREATE TABLE public.June_2021
+(    
+    ride_id VARCHAR PRIMARY KEY,   
+    rideable_type text,
+    started_at TIMESTAMP,
+    ended_at TIMESTAMP,
+	  ride_length TIME,   
+    day_of_week smallint,
+    day_of_week_text text,
+    start_station_name VARCHAR,
+  	start_station_id VARCHAR,   
+    end_station_name VARCHAR,
+    end_station_id VARCHAR,
+    start_lat double precision,
+	  start_lng double precision,   
+    end_lat double precision,
+    end_lng double precision,
+    member_casual text
+)
+```
+
+Then I joined the tables to create a table called "A"ll_data""
 
 ```{sql connection=}
 SELECT  distinct (start_station_name), count (start_station_name)
@@ -268,7 +294,7 @@ UNION
 
 ![Casual Stations](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Casual%20Stations.PNG)
 
-Casual: More likely to use bikes near lake Michigan and other tourist hot spots with more rides on weekends indicating people are using the bike for leisure.
+Casual: More likely to use bikes near lake Michigan and other tourist hot spots with more rides on weekends indicating people are using the bikes for leisure.
 
 Members: More likely to use in the downtown area and on weekdays, indicating these users are commuters to the city for work.
 
