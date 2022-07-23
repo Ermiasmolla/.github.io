@@ -190,7 +190,7 @@ UNION
 		Limit 5
 
 ```
-![Member Stations](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Member%20Stations.png)
+![Member Stations](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Member%20Stations.PNG)
 
 ```{sql connection=}
 SELECT  distinct (start_station_name), count (start_station_name)
@@ -260,7 +260,7 @@ UNION
 		Limit 5
 
 ```
-![Casual Stations](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Casual%20Stations.png)
+![Casual Stations](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Casual%20Stations.PNG)
 
 Casual: More likely to use bikes near lake Michigan and other tourist hot spots with more rides on weekends indicating people are using the bike for leisure. Members: More likely to use in the downtown area and on weekdays, indicating these users are commuters to the city for work.
 
