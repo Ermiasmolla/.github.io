@@ -104,7 +104,7 @@ fullset %>% filter(member_casual=='casual' | member_casual == 'member') %>% grou
 ```{r}
 fullset %>% filter(member_casual=='casual' | member_casual == 'member') %>% group_by(member_casual) %>% summarise(median=median(ride_length))
 ```
-![Median](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Median.PNG)
+![Median](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Median.png)
 
 Casual riders are riding for longer periods of time, with an average more than double the time of Members.
 
