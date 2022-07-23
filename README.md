@@ -124,7 +124,7 @@ Both Casual and Member riders prefer the Classic bike over the Electric bike. Do
 
 ![Density](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Density.png)
 
-In this part of the analysis I used PGAdmin to run SQL queries to find the top 5 stations for Members as well as Casual riders.
+In this part of the analysis I also used PGAdmin to run SQL queries to find the top 5 stations for Members as well as Casual riders.
 
 ```{sql connection=}
 SELECT  distinct (start_station_name), count (start_station_name)
@@ -268,7 +268,9 @@ UNION
 
 ![Casual Stations](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Casual%20Stations.PNG)
 
-Casual: More likely to use bikes near lake Michigan and other tourist hot spots with more rides on weekends indicating people are using the bike for leisure. Members: More likely to use in the downtown area and on weekdays, indicating these users are commuters to the city for work.
+Casual: More likely to use bikes near lake Michigan and other tourist hot spots with more rides on weekends indicating people are using the bike for leisure.
+
+Members: More likely to use in the downtown area and on weekdays, indicating these users are commuters to the city for work.
 
 **Share**
 
@@ -285,8 +287,6 @@ Here are my top 3 recommendations based on above key findings:
 2.  Design seasonal packages, It allows flexibility and encourages casual riders to get membership for specific periods if they are not willing to pay for annual subscription.
 
 3.  Effective and efficient promotions by targeting casual riders at the busiest times and stations:
-
-    -   
 
     -   Days: Weekends
 
