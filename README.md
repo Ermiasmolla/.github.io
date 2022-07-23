@@ -80,21 +80,21 @@ To analyze this data, I mostly used Tableau to visualize the data in a comprehen
 
 ![Ride_Length](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Rides%20by%20Ride%20Length.png)
 
-`{r}# Load packages in R}`
+```{r}
+install.packages("tidyverse")
 
-`install.packages("tidyverse")`
+library(readr)
 
-`library(readr)`
+library(tidyverse)
 
-`library(tidyverse)`
+library(dplyr)
 
-`library(dplyr)`
+library(skimr)
 
-`library(skimr)`
+june_2021 <- read_csv("Cyclistic Ride/CSV/202106-divvy-tripdata.csv") july_2021 <- read_csv("Cyclistic Ride/CSV/202107-divvy-tripdata.csv") august_2021 <- read_csv("Cyclistic Ride/CSV/202108-divvy-tripdata.csv") september_2021 <- read_csv("Cyclistic Ride/CSV/202109-divvy-tripdata.csv") october_2021 <- read_csv("Cyclistic Ride/CSV/202110-divvy-tripdata.csv") november_2021 <- read_csv("Cyclistic Ride/CSV/202111-divvy-tripdata.csv") december_2021 <- read_csv("Cyclistic Ride/CSV/202112-divvy-tripdata.csv") january_2022 <- read_csv("Cyclistic Ride/CSV/202201-divvy-tripdata.csv") february_2022 <- read_csv("Cyclistic Ride/CSV/202202-divvy-tripdata.csv") march_2022 <- read_csv("Cyclistic Ride/CSV/202203-divvy-tripdata.csv") april_2022 <- read_csv("Cyclistic Ride/CSV/202204-divvy-tripdata.csv") may_2022 <- read_csv("Cyclistic Ride/CSV/202205-divvy-tripdata.csv") fullset <- rbind(june_2021, july_2021,august_2021,september_2021,october_2021, november_2021,december_2021,january_2022,february_2022, march_2022,april_2022,may_2022)
+```
 
-`june_2021 <- read_csv("Cyclistic Ride/CSV/202106-divvy-tripdata.csv") july_2021 <- read_csv("Cyclistic Ride/CSV/202107-divvy-tripdata.csv") august_2021 <- read_csv("Cyclistic Ride/CSV/202108-divvy-tripdata.csv") september_2021 <- read_csv("Cyclistic Ride/CSV/202109-divvy-tripdata.csv") october_2021 <- read_csv("Cyclistic Ride/CSV/202110-divvy-tripdata.csv") november_2021 <- read_csv("Cyclistic Ride/CSV/202111-divvy-tripdata.csv") december_2021 <- read_csv("Cyclistic Ride/CSV/202112-divvy-tripdata.csv") january_2022 <- read_csv("Cyclistic Ride/CSV/202201-divvy-tripdata.csv") february_2022 <- read_csv("Cyclistic Ride/CSV/202202-divvy-tripdata.csv") march_2022 <- read_csv("Cyclistic Ride/CSV/202203-divvy-tripdata.csv") april_2022 <- read_csv("Cyclistic Ride/CSV/202204-divvy-tripdata.csv") may_2022 <- read_csv("Cyclistic Ride/CSV/202205-divvy-tripdata.csv") fullset <- rbind(june_2021, july_2021,august_2021,september_2021,october_2021, november_2021,december_2021,january_2022,february_2022, march_2022,april_2022,may_2022)`
-
-\`Using R to calculate Mean and Median
+Using R to calculate Mean and Median
 
 ```{r}
 fullset %>% filter(member_casual=='casual' | member_casual == 'member') %>% group_by(member_casual) %>% summarise(mean=mean(ride_length))
