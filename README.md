@@ -20,11 +20,11 @@ This project uses the data analysis process: **ask, prepare, process, analyze, s
 
 There are Three questions that will guide the future marketing program:
 
-1\. How do annual members and casual riders use Cyclistic bikes differently?
+1.  How do annual members and casual riders use Cyclistic bikes differently?
 
-2\. Why would casual riders buy Cyclistic annual memberships?
+2.  Why would casual riders buy Cyclistic annual memberships?
 
-3\. How can Cyclistic use digital media to influence casual riders to become members?
+3.  How can Cyclistic use digital media to influence casual riders to become members?
 
 The director of marketing, Lily Moreno, has assigned me the first question to answer: **How do annual members and casual riders use Cyclistic bikes differently?**
 
@@ -32,7 +32,7 @@ The director of marketing, Lily Moreno, has assigned me the first question to an
 
 The business task is to identify the key differences in usage between members and casual riders in order turn our Casual riders into Member riders.
 
-Stakeholders**:**
+Stakeholders
 
 The director of marketing
 
@@ -58,13 +58,13 @@ I processed the data in Excel by downloading, cleaning, manipulating and combini
 
 Within the change log I detail the steps I took in order to clean and mutate the data, including:
 
-·       Adding a ride length column
+·       Adding a ride_length column
 
 ·       Changing the formatting of that column to calculate duration
 
 ·       Adding a numerical column to pull the day of the week from the start date column.
 
-·       Adding another column to change that numerical value into a day (i.e. 2=Monday) for   clearer analysis
+·       Adding another column to change that numerical value into a day (i.e. 2=Monday) for clearer analysis
 
 ·       Removing rows where start and end points were not included.
 
@@ -94,11 +94,15 @@ To analyze this data, I mostly used Tableau to visualize the data in a comprehen
 
 `june_2021 <- read_csv("Cyclistic Ride/CSV/202106-divvy-tripdata.csv") july_2021 <- read_csv("Cyclistic Ride/CSV/202107-divvy-tripdata.csv") august_2021 <- read_csv("Cyclistic Ride/CSV/202108-divvy-tripdata.csv") september_2021 <- read_csv("Cyclistic Ride/CSV/202109-divvy-tripdata.csv") october_2021 <- read_csv("Cyclistic Ride/CSV/202110-divvy-tripdata.csv") november_2021 <- read_csv("Cyclistic Ride/CSV/202111-divvy-tripdata.csv") december_2021 <- read_csv("Cyclistic Ride/CSV/202112-divvy-tripdata.csv") january_2022 <- read_csv("Cyclistic Ride/CSV/202201-divvy-tripdata.csv") february_2022 <- read_csv("Cyclistic Ride/CSV/202202-divvy-tripdata.csv") march_2022 <- read_csv("Cyclistic Ride/CSV/202203-divvy-tripdata.csv") april_2022 <- read_csv("Cyclistic Ride/CSV/202204-divvy-tripdata.csv") may_2022 <- read_csv("Cyclistic Ride/CSV/202205-divvy-tripdata.csv") fullset <- rbind(june_2021, july_2021,august_2021,september_2021,october_2021, november_2021,december_2021,january_2022,february_2022, march_2022,april_2022,may_2022)`
 
-\`\`\`{r}#Using R to calculate Mean and Median#}
+\`Using R to calculate Mean and Median
 
-fullset %\>% filter(member_casual=='casual' \| member_casual == 'member') %\>% group_by(member_casual) %\>% summarise(mean=mean(ride_length))
+```{r}
+fullset %>% filter(member_casual=='casual' | member_casual == 'member') %>% group_by(member_casual) %>% summarise(mean=mean(ride_length))
+```
 
-fullset %\>% filter(member_casual=='casual' \| member_casual == 'member') %\>% group_by(member_casual) %\>% summarise(median=median(ride_length)) \`\`\`
+```{r}
+fullset %>% filter(member_casual=='casual' | member_casual == 'member') %>% group_by(member_casual) %>% summarise(median=median(ride_length))
+```
 
 Casual riders are riding for longer periods of time, with an average more than double the time of Members.
 
@@ -190,6 +194,7 @@ UNION
 		Limit 5
 
 ```
+
 ![Member Stations](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Member%20Stations.PNG)
 
 ```{sql connection=}
@@ -260,6 +265,7 @@ UNION
 		Limit 5
 
 ```
+
 ![Casual Stations](https://github.com/Ermiasmolla/.github.io/blob/main/Visualizations/Casual%20Stations.PNG)
 
 Casual: More likely to use bikes near lake Michigan and other tourist hot spots with more rides on weekends indicating people are using the bike for leisure. Members: More likely to use in the downtown area and on weekdays, indicating these users are commuters to the city for work.
