@@ -4,9 +4,9 @@
 
 **Introduction and Scenario**
 
-I am a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director of marketing believes the company's future success depends on maximizing the number of annual memberships. Therefore, my team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, my team will design a new marketing strategy to convert casual riders into annual members. But first, Cyclistic executives must approve your recommendations, so they must be backed up with compelling data insights and professional data visualizations.
+I am a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director of marketing believes the company's future success depends on maximizing the number of annual memberships. Therefore, my team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, my team will design a new marketing strategy to convert casual riders into annual members. But first, Cyclistic executives must approve my recommendations, so they must be backed up with compelling data insights and professional data visualizations.
 
-In this project I will be using Many of the tools introduced to me in the Google Data Analytics Course including Excel, SQL, R Studio and Tableau.
+In this project I will be using many of the tools introduced to me in the Google Data Analytics Course including Excel, SQL, R Studio and Tableau.
 
 **Background**
 
@@ -48,7 +48,7 @@ The data used is Cyclistic internal data from June 2021- May 2022. The data is a
 
 I downloaded 12 CSV files, one for each month within the last year, with 13 columns and more than 5,800,000 rows.
 
-Our data integrity will be assessed by using ROCCC method. The data needs to be **R**eliable it was be cleaned in Microsoft Excel. The data is **O**riginal because it comes from Motivate International Inc which operates Chicago's Bike sharing service. It is also **C**omprehensive containing many data-points from start time to start station and other data-points that are integral to the analysis. The data used is from the most **C**urrent 12-month period and it is **C**ited under a Data license agreement.
+Our data integrity will be assessed by using the ROCCC method. The data needs to be **R**eliable, it was be cleaned and manipulated using Microsoft Excel. The data is **O**riginal because it comes from Motivate International Inc which operates Chicago's Bike sharing service. It is also **C**omprehensive containing many data-points from start time to start station and other data-points that are integral to the analysis. The data used is from the most **C**urrent 12-month period and it is **C**ited under a Data license agreement.
 
 **Process**
 
@@ -316,7 +316,6 @@ After the analysis there are three recommendations I would make based on the tre
 
 3.	Location based discounts and activities
 	We observe the top 5 locations being near lakeshore drive and near tourist attractions such as the aquarium. We can assume that this is due to their primary use for the service being for leisurely activities. With leisure in mind, a recommendation I would give is to incentivize these activities. We can work with the city to give large discounts to members for public events. We can also give guided tours for tourists on the lake shore. Using these methods, we meet the casual rider’s needs.
-
 
 
 Thank you.
